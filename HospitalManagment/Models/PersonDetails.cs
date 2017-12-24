@@ -14,7 +14,7 @@
             set;
         }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Enter First Name.")]
+        //[Required(AllowEmptyStrings = false, ErrorMessage = "Enter First Name.")]
         [Display(Name = "First Name: ")]
         public string Firstname
         {
@@ -30,7 +30,7 @@
             set;
         }
 
-        [Required(AllowEmptyStrings = false, ErrorMessage = "Enter Middle Name.")]
+        //[Required(AllowEmptyStrings = false, ErrorMessage = "Enter Middle Name.")]
         [Display(Name = "Middle Name: ")]
         public string MiddleName
         {
@@ -38,7 +38,7 @@
             set;
         }
 
-        [Display(Name = "Gender: ")]
+        //[Display(Name = "Gender: ")]
         [Required(AllowEmptyStrings = false, ErrorMessage = "Select Gender.")]
         public Gender Gender
         {
@@ -57,7 +57,7 @@
         }
 
         [Display(Name = "Height: ")]
-        [RegularExpression("[2-7]'(1[0-1]|\\d)(''|\")", ErrorMessage = "Invalid Height ")]
+        //[RegularExpression("[2-7]'(1[0-1]|\\d)(''|\")", ErrorMessage = "Invalid Height ")]
         public string Height
         { get; set; }
 

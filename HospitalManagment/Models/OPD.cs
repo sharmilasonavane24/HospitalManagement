@@ -48,7 +48,7 @@ namespace HospitalManagment.Models
 
         //public string Reminder { get; set; }
 
-        [Required]
+       // [Required]
         [Display(Name = "Type Of Checkup: ")]
         public int TypeOfCheckup { get; set; }
 

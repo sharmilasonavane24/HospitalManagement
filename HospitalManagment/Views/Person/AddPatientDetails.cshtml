@@ -48,8 +48,8 @@
                             @Html.LabelFor(model => model.BirthDate)
                             @*</div>
                                 <div class="editor-field">*@
-                            @Html.TextBoxFor(model => model.BirthDate, new { Class = "input-group datepicker", @readonly = true })
-                            @Html.ValidationMessageFor(model => model.BirthDate)
+                            @Html.TextBoxFor(model => model.BirthDate, new { Class = "input-group datepicker" })
+                            @*@Html.ValidationMessageFor(model => model.BirthDate)*@
                         </div>
 
                         <div class="editor-label">
