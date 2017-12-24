@@ -19,27 +19,27 @@
 
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "First TT Injection: ")]
-        [Required]
+       // [Required]
         public object FirstTTInjection { get; set; }
 
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Second TT Injection: ")]
-        [Required]
+       // [Required]
         public object SecondTTInjection { get; set; }
 
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "LMP: ")]
-        [Required]
+       // [Required]
         public object LMP { get; set; }
 
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "EDD: ")]
-        [Required]
+       // [Required]
         public object EDD { get; set; }
 
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "EDD Corrected By USG: ")]
-        [Required]
+        // [Required]
         public object EDDCorrectedByUSG { get; set; }
 
         [Display(Name = "Obstetric History: ")]
