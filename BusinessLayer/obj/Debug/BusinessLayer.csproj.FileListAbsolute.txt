@@ -32,3 +32,16 @@ F:\HospitalSoftware\HospitalManagment\BusinessLayer\obj\Debug\BusinessLayer.cspr
 F:\HospitalSoftware\HospitalManagment\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
 F:\HospitalSoftware\HospitalManagment\BusinessLayer\obj\Debug\BusinessLayer.dll
 F:\HospitalSoftware\HospitalManagment\BusinessLayer\obj\Debug\BusinessLayer.pdb
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\bin\Debug\BusinessLayer.dll.config
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\bin\Debug\BusinessLayer.dll
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\bin\Debug\BusinessLayer.pdb
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\bin\Debug\Google.Api.Maps.Service.dll
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\bin\Debug\Google.Apis.Core.dll
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\bin\Debug\Newtonsoft.Json.dll
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\bin\Debug\PhoneNumbers.dll
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\bin\Debug\Google.Api.Maps.Service.xml
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\bin\Debug\Google.Apis.Core.xml
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\bin\Debug\Newtonsoft.Json.xml
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\obj\Debug\BusinessLayer.dll
+D:\HospitalManagement_GitHib\HospitalManagement\BusinessLayer\obj\Debug\BusinessLayer.pdb
