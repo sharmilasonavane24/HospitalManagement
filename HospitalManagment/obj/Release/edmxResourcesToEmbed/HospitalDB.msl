@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HospitalModelStoreContainer" CdmEntityContainer="HospitalEntities">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="HospitalModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UsersID" ColumnName="UsersID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contacts">
+      <EntityTypeMapping TypeName="HospitalModel.Contact">
+        <MappingFragment StoreEntitySet="Contact">
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Pincode" ColumnName="Pincode" />
+          <ScalarProperty Name="District" ColumnName="District" />
+          <ScalarProperty Name="Taluka" ColumnName="Taluka" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="StreetName" ColumnName="StreetName" />
+          <ScalarProperty Name="ContactNumber" ColumnName="ContactNumber" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="HospitalModel.Person">
+        <MappingFragment StoreEntitySet="Person">
+          <ScalarProperty Name="ReferredBy" ColumnName="ReferredBy" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Profession" ColumnName="Profession" />
+          <ScalarProperty Name="AdharCardNumber" ColumnName="AdharCardNumber" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonDetails">
+      <EntityTypeMapping TypeName="HospitalModel.PersonDetail">
+        <MappingFragment StoreEntitySet="PersonDetails">
+          <ScalarProperty Name="ChildIDs" ColumnName="ChildIDs" />
+          <ScalarProperty Name="SpouseID" ColumnName="SpouseID" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="PersonTypeID" ColumnName="PersonTypeID" />
+          <ScalarProperty Name="ContactID" ColumnName="ContactID" />
+          <ScalarProperty Name="PersonDetailsId" ColumnName="PersonDetailsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PersonTypes">
+      <EntityTypeMapping TypeName="HospitalModel.PersonType">
+        <MappingFragment StoreEntitySet="PersonTypes">
+          <ScalarProperty Name="NameOfType" ColumnName="NameOfType" />
+          <ScalarProperty Name="PersonTypeId" ColumnName="PersonTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeofCheckUps">
+      <EntityTypeMapping TypeName="HospitalModel.TypeofCheckUp">
+        <MappingFragment StoreEntitySet="TypeofCheckUp">
+          <ScalarProperty Name="CheckupName" ColumnName="CheckupName" />
+          <ScalarProperty Name="TypeofCheckUpId" ColumnName="TypeofCheckUpId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PaymentDetails">
+      <EntityTypeMapping TypeName="HospitalModel.PaymentDetail">
+        <MappingFragment StoreEntitySet="PaymentDetails">
+          <ScalarProperty Name="MedicalTest" ColumnName="MedicalTest" />
+          <ScalarProperty Name="MedicineCost" ColumnName="MedicineCost" />
+          <ScalarProperty Name="ECGFee" ColumnName="ECGFee" />
+          <ScalarProperty Name="VaccineFee" ColumnName="VaccineFee" />
+          <ScalarProperty Name="RoomChargesPerDay" ColumnName="RoomChargesPerDay" />
+          <ScalarProperty Name="DeliveryFee" ColumnName="DeliveryFee" />
+          <ScalarProperty Name="ConsultingFee" ColumnName="ConsultingFee" />
+          <ScalarProperty Name="PaymentDetailsID" ColumnName="PaymentDetailsID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedcineNames">
+      <EntityTypeMapping TypeName="HospitalModel.MedcineName">
+        <MappingFragment StoreEntitySet="MedcineNames">
+          <ScalarProperty Name="TypeOfMedicineId" ColumnName="TypeOfMedicineId" />
+          <ScalarProperty Name="MedicineWeight" ColumnName="MedicineWeight" />
+          <ScalarProperty Name="MedcineName1" ColumnName="MedcineName" />
+          <ScalarProperty Name="MedcineNamesId" ColumnName="MedcineNamesId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeOfMedcines">
+      <EntityTypeMapping TypeName="HospitalModel.TypeOfMedcine">
+        <MappingFragment StoreEntitySet="TypeOfMedcine">
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="TypeOfMedicineId" ColumnName="TypeOfMedicineId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Prescriptions">
+      <EntityTypeMapping TypeName="HospitalModel.Prescription">
+        <MappingFragment StoreEntitySet="Prescription">
+          <ScalarProperty Name="NextAppoinmentDate" ColumnName="NextAppoinmentDate" />
+          <ScalarProperty Name="MedcineNamesId" ColumnName="MedcineNamesId" />
+          <ScalarProperty Name="CreatedDateTime" ColumnName="CreatedDateTime" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+          <ScalarProperty Name="NumberOfDays" ColumnName="NumberOfDays" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Dosage" ColumnName="Dosage" />
+          <ScalarProperty Name="OpdID" ColumnName="OpdID" />
+          <ScalarProperty Name="PrescriptionID" ColumnName="PrescriptionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Histories">
+      <EntityTypeMapping TypeName="HospitalModel.History">
+        <MappingFragment StoreEntitySet="History">
+          <ScalarProperty Name="CurrentCycles" ColumnName="CurrentCycles" />
+          <ScalarProperty Name="ChiefComplains" ColumnName="ChiefComplains" />
+          <ScalarProperty Name="Menopause" ColumnName="Menopause" />
+          <ScalarProperty Name="Menorch" ColumnName="Menorch" />
+          <ScalarProperty Name="Abortions" ColumnName="Abortions" />
+          <ScalarProperty Name="LivingChildren" ColumnName="LivingChildren" />
+          <ScalarProperty Name="Parity" ColumnName="Parity" />
+          <ScalarProperty Name="Gravidity" ColumnName="Gravidity" />
+          <ScalarProperty Name="PositiveFindings" ColumnName="PositiveFindings" />
+          <ScalarProperty Name="ObstetricHistory" ColumnName="ObstetricHistory" />
+          <ScalarProperty Name="HighRiskFactor" ColumnName="HighRiskFactor" />
+          <ScalarProperty Name="PersonId" ColumnName="PersonId" />
+          <ScalarProperty Name="EDDCorrectedByUSG" ColumnName="EDDCorrectedByUSG" />
+          <ScalarProperty Name="EDD" ColumnName="EDD" />
+          <ScalarProperty Name="LMP" ColumnName="LMP" />
+          <ScalarProperty Name="SecondTTInjection" ColumnName="SecondTTInjection" />
+          <ScalarProperty Name="FirstTTInjection" ColumnName="FirstTTInjection" />
+          <ScalarProperty Name="AllergyDetails" ColumnName="AllergyDetails" />
+          <ScalarProperty Name="Reminder" ColumnName="Reminder" />
+          <ScalarProperty Name="HistoryId" ColumnName="HistoryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OPDs">
+      <EntityTypeMapping TypeName="HospitalModel.OPD">
+        <MappingFragment StoreEntitySet="OPD">
+          <ScalarProperty Name="OPDDate" ColumnName="OPDDate" />
+          <ScalarProperty Name="CNS" ColumnName="CNS" />
+          <ScalarProperty Name="PV" ColumnName="PV" />
+          <ScalarProperty Name="PS" ColumnName="PS" />
+          <ScalarProperty Name="PA" ColumnName="PA" />
+          <ScalarProperty Name="RsNCVS" ColumnName="RsNCVS" />
+          <ScalarProperty Name="OPDNumber" ColumnName="OPDNumber" />
+          <ScalarProperty Name="Pulse" ColumnName="Pulse" />
+          <ScalarProperty Name="BP" ColumnName="BP" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="Paid" ColumnName="Paid" />
+          <ScalarProperty Name="NextAppoinmentDate" ColumnName="NextAppoinmentDate" />
+          <ScalarProperty Name="TypeofCheckUp" ColumnName="TypeofCheckUp" />
+          <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+          <ScalarProperty Name="OPDId" ColumnName="OPDId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

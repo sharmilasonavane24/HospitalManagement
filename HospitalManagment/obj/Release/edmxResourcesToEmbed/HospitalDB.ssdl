@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="50" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StreetName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="City" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Taluka" Type="varchar" MaxLength="50" />
+    <Property Name="District" Type="varchar" MaxLength="50" />
+    <Property Name="Pincode" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="50" />
+    <Property Name="Country" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="History">
+    <Key>
+      <PropertyRef Name="HistoryId" />
+    </Key>
+    <Property Name="HistoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Reminder" Type="varchar" MaxLength="500" />
+    <Property Name="AllergyDetails" Type="varchar" MaxLength="500" />
+    <Property Name="FirstTTInjection" Type="date" />
+    <Property Name="SecondTTInjection" Type="date" />
+    <Property Name="LMP" Type="date" Nullable="false" />
+    <Property Name="EDD" Type="date" Nullable="false" />
+    <Property Name="EDDCorrectedByUSG" Type="date" Nullable="false" />
+    <Property Name="PersonId" Type="int" />
+    <Property Name="HighRiskFactor" Type="varchar" MaxLength="500" />
+    <Property Name="ObstetricHistory" Type="varchar" MaxLength="500" />
+    <Property Name="PositiveFindings" Type="varchar" MaxLength="500" />
+    <Property Name="Gravidity" Type="int" />
+    <Property Name="Parity" Type="int" />
+    <Property Name="LivingChildren" Type="int" />
+    <Property Name="Abortions" Type="int" />
+    <Property Name="Menorch" Type="int" />
+    <Property Name="Menopause" Type="int" />
+    <Property Name="ChiefComplains" Type="varchar" MaxLength="500" />
+    <Property Name="CurrentCycles" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="MedcineNames">
+    <Key>
+      <PropertyRef Name="MedcineNamesId" />
+    </Key>
+    <Property Name="MedcineNamesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MedcineName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="MedicineWeight" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TypeOfMedicineId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OPD">
+    <Key>
+      <PropertyRef Name="OPDId" />
+    </Key>
+    <Property Name="OPDId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PersonID" Type="int" Nullable="false" />
+    <Property Name="TypeofCheckUp" Type="int" Nullable="false" />
+    <Property Name="NextAppoinmentDate" Type="date" />
+    <Property Name="Paid" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Weight" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="BP" Type="varchar" MaxLength="10" />
+    <Property Name="Pulse" Type="int" />
+    <Property Name="OPDNumber" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RsNCVS" Type="varchar" MaxLength="50" />
+    <Property Name="PA" Type="varchar" MaxLength="50" />
+    <Property Name="PS" Type="varchar" MaxLength="50" />
+    <Property Name="PV" Type="varchar" MaxLength="50" />
+    <Property Name="CNS" Type="varchar" MaxLength="50" />
+    <Property Name="OPDDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="PaymentDetails">
+    <Key>
+      <PropertyRef Name="PaymentDetailsID" />
+    </Key>
+    <Property Name="PaymentDetailsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ConsultingFee" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="DeliveryFee" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="RoomChargesPerDay" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="VaccineFee" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="ECGFee" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="MedicineCost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="MedicalTest" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="lastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="BirthDate" Type="date" Nullable="false" />
+    <Property Name="Height" Type="nvarchar" MaxLength="10" />
+    <Property Name="RegisterDate" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="AdharCardNumber" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="Profession" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Religion" Type="varchar" MaxLength="50" />
+    <Property Name="ReferredBy" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PersonDetails">
+    <Key>
+      <PropertyRef Name="PersonDetailsId" />
+    </Key>
+    <Property Name="PersonDetailsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactID" Type="int" Nullable="false" />
+    <Property Name="PersonTypeID" Type="int" Nullable="false" />
+    <Property Name="PersonID" Type="int" Nullable="false" />
+    <Property Name="SpouseID" Type="int" Nullable="false" />
+    <Property Name="ChildIDs" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PersonTypes">
+    <Key>
+      <PropertyRef Name="PersonTypeId" />
+    </Key>
+    <Property Name="PersonTypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameOfType" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prescription">
+    <Key>
+      <PropertyRef Name="PrescriptionID" />
+    </Key>
+    <Property Name="PrescriptionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OpdID" Type="int" Nullable="false" />
+    <Property Name="Dosage" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Quantity" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="NumberOfDays" Type="int" Nullable="false" />
+    <Property Name="comments" Type="varchar" MaxLength="200" />
+    <Property Name="CreatedDateTime" Type="datetime" Nullable="false" />
+    <Property Name="MedcineNamesId" Type="int" Nullable="false" />
+    <Property Name="NextAppoinmentDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TypeofCheckUp">
+    <Key>
+      <PropertyRef Name="TypeofCheckUpId" />
+    </Key>
+    <Property Name="TypeofCheckUpId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CheckupName" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TypeOfMedcine">
+    <Key>
+      <PropertyRef Name="TypeOfMedicineId" />
+    </Key>
+    <Property Name="TypeOfMedicineId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UsersID" />
+    </Key>
+    <Property Name="UsersID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="UserType" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Password" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_Cotact_1_ContactID">
+    <End Role="Contact" Type="Self.Contact" Multiplicity="1" />
+    <End Role="PersonDetails" Type="Self.PersonDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="ContactId" />
+      </Principal>
+      <Dependent Role="PersonDetails">
+        <PropertyRef Name="ContactID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NameOfMedicine">
+    <End Role="MedcineNames" Type="Self.MedcineNames" Multiplicity="1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MedcineNames">
+        <PropertyRef Name="MedcineNamesId" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="MedcineNamesId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_OPD">
+    <End Role="OPD" Type="Self.OPD" Multiplicity="1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OPD">
+        <PropertyRef Name="OPDId" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="OpdID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="OPD" Type="Self.OPD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="OPD">
+        <PropertyRef Name="PersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonDetails_Person">
+    <End Role="Person" Type="Self.Person" Multiplicity="1" />
+    <End Role="PersonDetails" Type="Self.PersonDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="PersonDetails">
+        <PropertyRef Name="PersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonDetails_PersonTypes">
+    <End Role="PersonTypes" Type="Self.PersonTypes" Multiplicity="1" />
+    <End Role="PersonDetails" Type="Self.PersonDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonTypes">
+        <PropertyRef Name="PersonTypeId" />
+      </Principal>
+      <Dependent Role="PersonDetails">
+        <PropertyRef Name="PersonTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypeofCheckUp">
+    <End Role="TypeofCheckUp" Type="Self.TypeofCheckUp" Multiplicity="1" />
+    <End Role="OPD" Type="Self.OPD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeofCheckUp">
+        <PropertyRef Name="TypeofCheckUpId" />
+      </Principal>
+      <Dependent Role="OPD">
+        <PropertyRef Name="TypeofCheckUp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypeOfMedicine">
+    <End Role="TypeOfMedcine" Type="Self.TypeOfMedcine" Multiplicity="1" />
+    <End Role="MedcineNames" Type="Self.MedcineNames" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeOfMedcine">
+        <PropertyRef Name="TypeOfMedicineId" />
+      </Principal>
+      <Dependent Role="MedcineNames">
+        <PropertyRef Name="TypeOfMedicineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PersonID_FK">
+    <End Role="Person" Type="Self.Person" Multiplicity="0..1" />
+    <End Role="History" Type="Self.History" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="History">
+        <PropertyRef Name="PersonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HospitalModelStoreContainer">
+    <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="History" EntityType="Self.History" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MedcineNames" EntityType="Self.MedcineNames" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OPD" EntityType="Self.OPD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PaymentDetails" EntityType="Self.PaymentDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Person" EntityType="Self.Person" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonDetails" EntityType="Self.PersonDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PersonTypes" EntityType="Self.PersonTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeofCheckUp" EntityType="Self.TypeofCheckUp" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TypeOfMedcine" EntityType="Self.TypeOfMedcine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cotact_1_ContactID" Association="Self.FK_Cotact_1_ContactID">
+      <End Role="Contact" EntitySet="Contact" />
+      <End Role="PersonDetails" EntitySet="PersonDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NameOfMedicine" Association="Self.FK_NameOfMedicine">
+      <End Role="MedcineNames" EntitySet="MedcineNames" />
+      <End Role="Prescription" EntitySet="Prescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_OPD" Association="Self.FK_OPD">
+      <End Role="OPD" EntitySet="OPD" />
+      <End Role="Prescription" EntitySet="Prescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person" Association="Self.FK_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="OPD" EntitySet="OPD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonDetails_Person" Association="Self.FK_PersonDetails_Person">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="PersonDetails" EntitySet="PersonDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonDetails_PersonTypes" Association="Self.FK_PersonDetails_PersonTypes">
+      <End Role="PersonTypes" EntitySet="PersonTypes" />
+      <End Role="PersonDetails" EntitySet="PersonDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypeofCheckUp" Association="Self.FK_TypeofCheckUp">
+      <End Role="TypeofCheckUp" EntitySet="TypeofCheckUp" />
+      <End Role="OPD" EntitySet="OPD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypeOfMedicine" Association="Self.FK_TypeOfMedicine">
+      <End Role="TypeOfMedcine" EntitySet="TypeOfMedcine" />
+      <End Role="MedcineNames" EntitySet="MedcineNames" />
+    </AssociationSet>
+    <AssociationSet Name="PersonID_FK" Association="Self.PersonID_FK">
+      <End Role="Person" EntitySet="Person" />
+      <End Role="History" EntitySet="History" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

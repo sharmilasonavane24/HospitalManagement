@@ -1,0 +1,2 @@
+D:\HospitalManagment\HospitalManagment\HospitalManagment\obj\x86\Debug\HospitalManagment_test.csproj.CoreCompileInputs.cache
+D:\HospitalManagment\HospitalManagment\HospitalManagment\obj\x86\Debug\HospitalManagment_test.csprojResolveAssemblyReference.cache

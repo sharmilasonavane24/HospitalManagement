@@ -1,0 +1,13 @@
+D:\HospitalManagment\HospitalManagment\BusinessLayer\bin\Release\BusinessLayer.dll.config
+D:\HospitalManagment\HospitalManagment\BusinessLayer\bin\Release\BusinessLayer.dll
+D:\HospitalManagment\HospitalManagment\BusinessLayer\bin\Release\BusinessLayer.pdb
+D:\HospitalManagment\HospitalManagment\BusinessLayer\bin\Release\Newtonsoft.Json.dll
+D:\HospitalManagment\HospitalManagment\BusinessLayer\bin\Release\PhoneNumbers.dll
+D:\HospitalManagment\HospitalManagment\BusinessLayer\bin\Release\Newtonsoft.Json.xml
+D:\HospitalManagment\HospitalManagment\BusinessLayer\obj\Release\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\HospitalManagment\HospitalManagment\BusinessLayer\obj\Release\BusinessLayer.dll
+D:\HospitalManagment\HospitalManagment\BusinessLayer\obj\Release\BusinessLayer.pdb
+D:\HospitalManagment\HospitalManagment\BusinessLayer\bin\Release\Google.Api.Maps.Service.dll
+D:\HospitalManagment\HospitalManagment\BusinessLayer\bin\Release\Google.Apis.Core.dll
+D:\HospitalManagment\HospitalManagment\BusinessLayer\bin\Release\Google.Api.Maps.Service.xml
+D:\HospitalManagment\HospitalManagment\BusinessLayer\bin\Release\Google.Apis.Core.xml

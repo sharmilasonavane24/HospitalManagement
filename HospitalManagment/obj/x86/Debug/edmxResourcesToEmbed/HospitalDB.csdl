@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HospitalModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="HospitalEntities" p1:LazyLoadingEnabled="true" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+    <EntitySet Name="Users" EntityType="HospitalModel.User" />
+    <EntitySet Name="Contacts" EntityType="HospitalModel.Contact" />
+    <EntitySet Name="People" EntityType="HospitalModel.Person" />
+    <EntitySet Name="PersonDetails" EntityType="HospitalModel.PersonDetail" />
+    <EntitySet Name="PersonTypes" EntityType="HospitalModel.PersonType" />
+    <AssociationSet Name="FK_Cotact_1_ContactID" Association="HospitalModel.FK_Cotact_1_ContactID">
+      <End Role="Contact" EntitySet="Contacts" />
+      <End Role="PersonDetail" EntitySet="PersonDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonDetails_Person" Association="HospitalModel.FK_PersonDetails_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="PersonDetail" EntitySet="PersonDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonDetails_Person1" Association="HospitalModel.FK_PersonDetails_Person1">
+      <End Role="Person" EntitySet="People" />
+      <End Role="PersonDetail" EntitySet="PersonDetails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PersonDetails_PersonTypes" Association="HospitalModel.FK_PersonDetails_PersonTypes">
+      <End Role="PersonType" EntitySet="PersonTypes" />
+      <End Role="PersonDetail" EntitySet="PersonDetails" />
+    </AssociationSet>
+    <EntitySet Name="OPDs" EntityType="HospitalModel.OPD" />
+    <EntitySet Name="Prescriptions" EntityType="HospitalModel.Prescription" />
+    <EntitySet Name="TypeofCheckUps" EntityType="HospitalModel.TypeofCheckUp" />
+    <AssociationSet Name="FK_OPD" Association="HospitalModel.FK_OPD">
+      <End Role="OPD" EntitySet="OPDs" />
+      <End Role="Prescription" EntitySet="Prescriptions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Person" Association="HospitalModel.FK_Person">
+      <End Role="Person" EntitySet="People" />
+      <End Role="OPD" EntitySet="OPDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TypeofCheckUp" Association="HospitalModel.FK_TypeofCheckUp">
+      <End Role="TypeofCheckUp" EntitySet="TypeofCheckUps" />
+      <End Role="OPD" EntitySet="OPDs" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UsersID" />
+    </Key>
+    <Property Name="UsersID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="EmailId" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="UserType" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="StreetName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Taluka" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="District" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Pincode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PersonDetails" Relationship="HospitalModel.FK_Cotact_1_ContactID" FromRole="Contact" ToRole="PersonDetail" />
+  </EntityType>
+  <EntityType Name="Person">
+    <Key>
+      <PropertyRef Name="PersonId" />
+    </Key>
+    <Property Name="PersonId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="Firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Height" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="RegisterDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="AdharCardNumber" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Profession" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="PersonDetails" Relationship="HospitalModel.FK_PersonDetails_Person" FromRole="Person" ToRole="PersonDetail" />
+    <NavigationProperty Name="PersonDetails1" Relationship="HospitalModel.FK_PersonDetails_Person1" FromRole="Person" ToRole="PersonDetail" />
+    <Property Name="Age" Type="Decimal" Nullable="false" DefaultValue="0" Precision="18" Scale="0" />
+    <NavigationProperty Name="OPDs" Relationship="HospitalModel.FK_Person" FromRole="Person" ToRole="OPD" />
+  </EntityType>
+  <EntityType Name="PersonDetail">
+    <Key>
+      <PropertyRef Name="PersonDetailsId" />
+    </Key>
+    <Property Name="PersonDetailsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="ContactID" Type="Int32" Nullable="false" />
+    <Property Name="PersonTypeID" Type="Int32" Nullable="false" />
+    <Property Name="PersonID" Type="Int32" Nullable="false" />
+    <Property Name="SpouseID" Type="Int32" Nullable="false" />
+    <Property Name="ChildIDs" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Contact" Relationship="HospitalModel.FK_Cotact_1_ContactID" FromRole="PersonDetail" ToRole="Contact" />
+    <NavigationProperty Name="Person" Relationship="HospitalModel.FK_PersonDetails_Person" FromRole="PersonDetail" ToRole="Person" />
+    <NavigationProperty Name="Person1" Relationship="HospitalModel.FK_PersonDetails_Person1" FromRole="PersonDetail" ToRole="Person" />
+    <NavigationProperty Name="PersonType" Relationship="HospitalModel.FK_PersonDetails_PersonTypes" FromRole="PersonDetail" ToRole="PersonType" />
+  </EntityType>
+  <EntityType Name="PersonType">
+    <Key>
+      <PropertyRef Name="PersonTypeId" />
+    </Key>
+    <Property Name="PersonTypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="NameOfType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PersonDetails" Relationship="HospitalModel.FK_PersonDetails_PersonTypes" FromRole="PersonType" ToRole="PersonDetail" />
+  </EntityType>
+  <Association Name="FK_Cotact_1_ContactID">
+    <End Type="HospitalModel.Contact" Role="Contact" Multiplicity="1" />
+    <End Type="HospitalModel.PersonDetail" Role="PersonDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contact">
+        <PropertyRef Name="ContactId" />
+      </Principal>
+      <Dependent Role="PersonDetail">
+        <PropertyRef Name="ContactID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonDetails_Person">
+    <End Type="HospitalModel.Person" Role="Person" Multiplicity="1" />
+    <End Type="HospitalModel.PersonDetail" Role="PersonDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="PersonDetail">
+        <PropertyRef Name="PersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonDetails_Person1">
+    <End Type="HospitalModel.Person" Role="Person" Multiplicity="1" />
+    <End Type="HospitalModel.PersonDetail" Role="PersonDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="PersonDetail">
+        <PropertyRef Name="SpouseID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PersonDetails_PersonTypes">
+    <End Type="HospitalModel.PersonType" Role="PersonType" Multiplicity="1" />
+    <End Type="HospitalModel.PersonDetail" Role="PersonDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PersonType">
+        <PropertyRef Name="PersonTypeId" />
+      </Principal>
+      <Dependent Role="PersonDetail">
+        <PropertyRef Name="PersonTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="OPD">
+    <Key>
+      <PropertyRef Name="OPDId" />
+    </Key>
+    <Property Name="OPDId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="PersonID" Type="Int32" Nullable="false" />
+    <Property Name="OPDDate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="AllergyDetails" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="History" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Reminder" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="TypeofCheckUp" Type="Int32" Nullable="false" />
+    <Property Name="NextAppoinmentDate" Type="DateTime" Precision="0" />
+    <Property Name="Paid" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Due" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="Prescriptions" Relationship="HospitalModel.FK_OPD" FromRole="OPD" ToRole="Prescription" />
+    <NavigationProperty Name="Person" Relationship="HospitalModel.FK_Person" FromRole="OPD" ToRole="Person" />
+    <NavigationProperty Name="TypeofCheckUp1" Relationship="HospitalModel.FK_TypeofCheckUp" FromRole="OPD" ToRole="TypeofCheckUp" />
+    <Property Name="SignAndSymptomsComplaints" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Weight" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Prescription">
+    <Key>
+      <PropertyRef Name="PrescriptionID" />
+    </Key>
+    <Property Name="PrescriptionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="OpdID" Type="Int32" Nullable="false" />
+    <Property Name="NameOfMedicine" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Dosage" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OPD" Relationship="HospitalModel.FK_OPD" FromRole="Prescription" ToRole="OPD" />
+    <Property Name="NumberOfDays" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TypeofCheckUp">
+    <Key>
+      <PropertyRef Name="TypeofCheckUpId" />
+    </Key>
+    <Property Name="TypeofCheckUpId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+    <Property Name="CheckupName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OPDs" Relationship="HospitalModel.FK_TypeofCheckUp" FromRole="TypeofCheckUp" ToRole="OPD" />
+  </EntityType>
+  <Association Name="FK_OPD">
+    <End Type="HospitalModel.OPD" Role="OPD" Multiplicity="1" />
+    <End Type="HospitalModel.Prescription" Role="Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OPD">
+        <PropertyRef Name="OPDId" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="OpdID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Person">
+    <End Type="HospitalModel.Person" Role="Person" Multiplicity="1" />
+    <End Type="HospitalModel.OPD" Role="OPD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Person">
+        <PropertyRef Name="PersonId" />
+      </Principal>
+      <Dependent Role="OPD">
+        <PropertyRef Name="PersonID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TypeofCheckUp">
+    <End Type="HospitalModel.TypeofCheckUp" Role="TypeofCheckUp" Multiplicity="1" />
+    <End Type="HospitalModel.OPD" Role="OPD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TypeofCheckUp">
+        <PropertyRef Name="TypeofCheckUpId" />
+      </Principal>
+      <Dependent Role="OPD">
+        <PropertyRef Name="TypeofCheckUp" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

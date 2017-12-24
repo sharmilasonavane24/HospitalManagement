@@ -1,0 +1,105 @@
+﻿@model HospitalManagment.Models.OPD
+
+<div class="form-horizontal">
+    @*<h4>ClinicalExamination</h4>*@
+    <table>
+        <tr>
+            <td width="50%">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TypeOfCheckup, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @{
+                                var data = TempData.Peek("TDTypeOfCheckup") as SelectList;
+                        }
+                        @if (data != null)
+                            {
+                            @Html.DropDownList("TypeOfCheckup", data, "Select Checkup")
+                            @Html.ValidationMessageFor(model => model.TypeOfCheckup)
+                            }
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.clinicalExamination.BP, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.clinicalExamination.BP, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.clinicalExamination.BP, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.clinicalExamination.Pulse, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.clinicalExamination.Pulse, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.clinicalExamination.Pulse, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.clinicalExamination.CurrentWeight, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.clinicalExamination.CurrentWeight, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.clinicalExamination.CurrentWeight, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.clinicalExamination.positiveFidings, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.clinicalExamination.positiveFidings, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.clinicalExamination.positiveFidings, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.clinicalExamination.RsNCVS, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.clinicalExamination.RsNCVS, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.clinicalExamination.RsNCVS, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+            <td width="50%">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.clinicalExamination.PA, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.clinicalExamination.PA, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.clinicalExamination.PA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.clinicalExamination.PS, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.clinicalExamination.PS, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.clinicalExamination.PS, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.clinicalExamination.PV, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.clinicalExamination.PV, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.clinicalExamination.PV, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.clinicalExamination.CNS, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.clinicalExamination.CNS, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.clinicalExamination.CNS, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
