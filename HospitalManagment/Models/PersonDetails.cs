@@ -56,9 +56,8 @@
             set;
         }
 
-        [Display(Name = "Height: ")]
-        //[RegularExpression("[2-7]'(1[0-1]|\\d)(''|\")", ErrorMessage = "Invalid Height ")]
-        public string Height
+        [Display(Name = "Height in cm: ")]
+        public int Height
         { get; set; }
 
         [ScaffoldColumn(false)]

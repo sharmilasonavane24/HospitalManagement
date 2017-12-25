@@ -11,7 +11,7 @@ namespace BusinessLayer
         string MiddleName { get; set; }
         Gender Gender { get; set; }
         object BirthDate { get; set; }
-        string Height { get; set; }
+        int Height { get; set; }
         string RegisterDate { get; set; }
         string AdharCardNumber { get; set; }
         string Profession { get; set; }
