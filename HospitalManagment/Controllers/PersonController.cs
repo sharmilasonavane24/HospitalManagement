@@ -45,7 +45,7 @@ namespace HospitalManagment.Controllers
                         patientDetails.AdharCardNumber = Convert.ToDecimal(person.AdharCardNumber);
                         patientDetails.BirthDate = Convert.ToDateTime(((string[])person.BirthDate)[0]);
                         patientDetails.Gender = Enum.GetName(typeof(BusinessLayer.Gender), person.Gender);
-                        patientDetails.Height = person.Height;
+                        patientDetails.Height = Convert.ToString(person.Height);
                         patientDetails.MiddleName = person.MiddleName;
                         patientDetails.Profession = person.Profession;
                         patientDetails.RegisterDate = DateTime.Now;
