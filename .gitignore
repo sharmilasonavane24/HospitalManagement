@@ -268,3 +268,5 @@ HospitalManagment/bin/HospitalManagment.dll
 /HospitalManagment/.vs
 HospitalManagment/obj/Debug/HospitalManagment.pdb
 /HospitalManagment/bin
+/HospitalManagment/obj
+/HospitalManagment/bin
