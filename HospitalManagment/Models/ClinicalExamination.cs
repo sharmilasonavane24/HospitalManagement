@@ -16,10 +16,10 @@ namespace HospitalManagment.Models
         [Display(Name = "Pulse: ")]
         public int Pulse { get; set; }
 
-        [Display(Name = "Weight: ")]
+        [Display(Name = "Weight: (Kgs)")]
         public decimal CurrentWeight { get; set; }
 
-        [Display(Name = "Positive Fidings: ")]
+        [Display(Name = "Provisional Diagnosis: ")]
         public string positiveFidings { get; set; }
 
         [Display(Name = "Rs/CVS: ")]
