@@ -14,7 +14,7 @@
         [Display(Name = "Reminder: ")]
         public string Reminder { get; set; }
 
-        [Display(Name = "Any Allergy Details: ")]
+        [Display(Name = "Past/Personal/Family History")]
         public string AllergyDetails { get; set; }
 
         [DataType(DataType.Date), DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
@@ -54,10 +54,10 @@
         [Display(Name = "Current Cycle:")]
         public string CurrentCycle { get; set; }
 
-        [Display(Name = "Menorche:")]
+        [Display(Name = "Menarche:")]
         public int Menorche { get; set; }
 
-        [Display(Name = "MenoPause:")]
+        [Display(Name = "Menopause:")]
         public int MenoPause { get; set; }
 
         [Display(Name = "G:")]

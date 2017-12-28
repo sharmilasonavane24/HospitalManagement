@@ -259,7 +259,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
-/HospitalManagment/bin
+/HospitalManagment/bin/
 .vs/HospitalManagment/v15/.suo
 HospitalManagment/obj/Debug/HospitalManagment.pdb
 HospitalManagment/obj/Debug/HospitalManagment.dll
@@ -268,7 +268,15 @@ HospitalManagment/bin/HospitalManagment.dll
 /HospitalManagment/.vs
 HospitalManagment/obj/Debug/HospitalManagment.pdb
 /HospitalManagment/bin
-/HospitalManagment/obj
+/HospitalManagment/obj/
+/HospitalManagment/bin/
+HospitalManagment/Web.config
+HospitalManagment/obj/Debug/HospitalManagment.pdb
+HospitalManagment/obj/Debug/HospitalManagment.dll
+.vs/HospitalManagment/v15/.suo
+
+HospitalManagment/bin/BusinessLayer.dll
+HospitalManagment/bin/BusinessLayer.pdb
 /HospitalManagment/bin
 HospitalManagment/bin/BusinessLayer.dll
 HospitalManagment/bin/BusinessLayer.dll
