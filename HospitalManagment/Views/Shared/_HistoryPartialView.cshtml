@@ -47,7 +47,7 @@
                     var dd = newDate.getDate();
                     var mm = newDate.getMonth() + 1;
                     var str = $.datepicker.formatDate('dd-M-yy', newDate);
-                    
+
 
                     $("#history_EDD").val(str);// = newDate;
                 }
@@ -73,13 +73,149 @@
         @Html.AntiForgeryToken()*@
 
 <div class="form-horizontal">
-    @* <h4>History</h4>*@
-    @*<hr />*@
+  
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.history.HistoryId)
     <table>
         <tr>
-            <td width="50%">
+
+
+
+            <td id="tableText">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.history.ChiefComplains, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.history.ChiefComplains, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.history.ChiefComplains, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.history.PositiveFindings, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.history.PositiveFindings, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.history.PositiveFindings, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.history.AllergyDetails, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.history.AllergyDetails, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.history.AllergyDetails, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+               
+               
+            </td>
+
+            <td>
+                <div class="form-group">Menstrual History</div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.history.LMP, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.history.LMP, new { Class = "input-group datepicker", @readonly = true })
+                        @Html.ValidationMessageFor(model => model.history.LMP, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.history.EDD, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.history.EDD, new { Class = "input-group datepicker", @readonly = true })
+                        @Html.ValidationMessageFor(model => model.history.EDD, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.history.CurrentCycle, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextAreaFor(model => model.history.CurrentCycle, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.history.CurrentCycle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.history.EDDCorrectedByUSG, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.TextBoxFor(model => model.history.EDDCorrectedByUSG, new { Class = "input-group datepicker", @readonly = true })
+                        @Html.ValidationMessageFor(model => model.history.EDDCorrectedByUSG, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <table>
+                    <tr>
+                        <td>
+                            <div class="form-group">
+
+                                @Html.LabelFor(model => model.history.MenoPause, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.history.MenoPause, null, new { @class = "medium" })
+                                    @Html.ValidationMessageFor(model => model.history.MenoPause, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.history.Menorche, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.history.Menorche, null, new { @class = "medium" })
+                                    @Html.ValidationMessageFor(model => model.history.Menorche, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+            <td id="tableText" width="50%">
+
+                  <div>
+                    <div class="form-group">Obstetric History</div>
+                    <table>
+
+                       
+                        <tr>
+                            <td>
+                                G:@Html.TextBoxFor(model => model.history.Gravidity, null, new { @class = "small" })
+                            </td>
+                            @*<td>
+                        @Html.ValidationMessageFor(model => model.history.Gravidity, "", new { @class = "text-danger" })
+                    </td>*@
+                            <td>
+                                P: @Html.TextBoxFor(model => model.history.Parity, null, new { @class = "small" })
+                            </td>
+
+                            @*<td>
+                        @Html.ValidationMessageFor(model => model.history.Parity, "", new { @class = "text-danger" })
+
+                    </td>*@
+                            <td>
+
+                                L:@Html.TextBoxFor(model => model.history.LivingChildren, null, new { @class = "small" })
+                            </td>
+                            @*<td>
+                        @Html.ValidationMessageFor(model => model.history.LivingChildren, "", new { @class = "text-danger" })
+
+                    </td>*@
+                            <td>
+
+                                A:@Html.TextBoxFor(model => model.history.Abortions, null, new { @class = "small" })
+                            </td>
+                            @*<td>
+                                @Html.ValidationMessageFor(model => model.history.Abortions, "", new { @class = "text-danger" })
+
+                    </td>*@
+                        </tr>
+
+
+                    </table>
+
+                </div>
+
+
+
                 <div class="form-group">
                     @Html.LabelFor(model => model.history.Reminder, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -88,13 +224,6 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.history.AllergyDetails, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.history.AllergyDetails, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.history.AllergyDetails, "", new { @class = "text-danger" })
-                    </div>
-                </div>
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.history.FirstTTInjection, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -111,28 +240,7 @@
                     </div>
                 </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.history.LMP, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.history.LMP, new { Class = "input-group datepicker", @readonly = true })
-                        @Html.ValidationMessageFor(model => model.history.LMP, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.history.EDD, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.history.EDD, new { Class = "input-group datepicker", @readonly = true })
-                        @Html.ValidationMessageFor(model => model.history.EDD, "", new { @class = "text-danger" })
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.history.EDDCorrectedByUSG, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(model => model.history.EDDCorrectedByUSG, new { Class = "input-group datepicker", @readonly = true })
-                        @Html.ValidationMessageFor(model => model.history.EDDCorrectedByUSG, "", new { @class = "text-danger" })
-                    </div>
-                </div>
                 <div class="form-group">
                     @Html.LabelFor(model => model.history.HighRiskFactor, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -140,95 +248,8 @@
                         @Html.ValidationMessageFor(model => model.history.HighRiskFactor, "", new { @class = "text-danger" })
                     </div>
                 </div>
-            </td>
-            <td width="50%">
 
-                <div class="form-group">
-                    @Html.LabelFor(model => model.history.PositiveFindings, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.history.PositiveFindings, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.history.PositiveFindings, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div>
-                    <table>
-                        <tr>
-                            <td>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.history.MenoPause, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.TextBoxFor(model => model.history.MenoPause, null, new { @class = "small" })
-                                        @Html.ValidationMessageFor(model => model.history.MenoPause, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.history.Menorche, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.TextBoxFor(model => model.history.Menorche, null, new { @class = "small" })
-                                        @Html.ValidationMessageFor(model => model.history.Menorche, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.history.Gravidity, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.TextBoxFor(model => model.history.Gravidity, null, new { @class = "small" })
-                                        @Html.ValidationMessageFor(model => model.history.Gravidity, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.history.Parity, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.TextBoxFor(model => model.history.Parity, null, new { @class = "small" })
-                                        @Html.ValidationMessageFor(model => model.history.Parity, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.history.LivingChildren, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.TextBoxFor(model => model.history.LivingChildren, null, new { @class = "small" })
-                                        @Html.ValidationMessageFor(model => model.history.LivingChildren, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.history.Abortions, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-10">
-                                        @Html.TextBoxFor(model => model.history.Abortions, null, new { @class = "small" })
-                                        @Html.ValidationMessageFor(model => model.history.Abortions, "", new { @class = "text-danger" })
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
-                    </table>
 
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.history.CurrentCycle, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.history.CurrentCycle, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.history.CurrentCycle, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.history.ChiefComplains, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.TextAreaFor(model => model.history.ChiefComplains, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.history.ChiefComplains, "", new { @class = "text-danger" })
-                    </div>
-                </div>
             </td>
         </tr>
 
