@@ -289,3 +289,11 @@ HospitalManagment/obj/Debug/HospitalManagment.csproj.CoreCompileInputs.cache
 HospitalManagment/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 .vs/HospitalManagment/v15/.suo
 .vs/HospitalManagment/v15/sqlite3/storage.ide
+*.cache
+.vs/HospitalManagment/v15/*.*
+*.ide
+*.ide
+*.dll
+HospitalManagment/bin/HospitalManagment.dll.config
+BusinessLayer/obj/Debug/BusinessLayer.dll
+BusinessLayer/obj/Debug/BusinessLayer.pdb
