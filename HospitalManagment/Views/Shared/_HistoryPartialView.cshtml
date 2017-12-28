@@ -112,7 +112,7 @@
 
             <td>
                 <div class="form-group">Menstrual History</div>
-
+                <hr />
                 <div class="form-group">
                     @Html.LabelFor(model => model.history.LMP, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -171,42 +171,43 @@
             </td>
             <td id="tableText" width="50%">
 
-                  <div>
+                <div>
                     <div class="form-group">Obstetric History</div>
+                    <hr />
                     <table>
 
-                       
+
                         <tr>
                             <td>
                                 G:@Html.TextBoxFor(model => model.history.Gravidity, null, new { @class = "small" })
                             </td>
                             @*<td>
-                        @Html.ValidationMessageFor(model => model.history.Gravidity, "", new { @class = "text-danger" })
-                    </td>*@
+                    @Html.ValidationMessageFor(model => model.history.Gravidity, "", new { @class = "text-danger" })
+                </td>*@
                             <td>
                                 P: @Html.TextBoxFor(model => model.history.Parity, null, new { @class = "small" })
                             </td>
 
                             @*<td>
-                        @Html.ValidationMessageFor(model => model.history.Parity, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.history.Parity, "", new { @class = "text-danger" })
 
-                    </td>*@
+                </td>*@
                             <td>
 
                                 L:@Html.TextBoxFor(model => model.history.LivingChildren, null, new { @class = "small" })
                             </td>
                             @*<td>
-                        @Html.ValidationMessageFor(model => model.history.LivingChildren, "", new { @class = "text-danger" })
+                    @Html.ValidationMessageFor(model => model.history.LivingChildren, "", new { @class = "text-danger" })
 
-                    </td>*@
+                </td>*@
                             <td>
 
                                 A:@Html.TextBoxFor(model => model.history.Abortions, null, new { @class = "small" })
                             </td>
                             @*<td>
-                                @Html.ValidationMessageFor(model => model.history.Abortions, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.history.Abortions, "", new { @class = "text-danger" })
 
-                    </td>*@
+                </td>*@
                         </tr>
 
 
