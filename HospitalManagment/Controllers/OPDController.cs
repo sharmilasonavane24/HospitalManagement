@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using HospitalManagment.Models;
 using System.Globalization;
 using HospitalManagment.CustomValidation;
 using System.Text;
-using System.Web.Mvc.Html;
 
 namespace HospitalManagment.Controllers
 {
@@ -15,8 +13,7 @@ namespace HospitalManagment.Controllers
     [HandleError]
     public class OPDController : Controller
     {
-        //
-        // GET: /OPD/B
+
         [HttpGet]
         public ActionResult OPD(int PatientId)
         {
@@ -88,7 +85,7 @@ namespace HospitalManagment.Controllers
                     _history.ChiefComplains = history.ChiefComplains;
                     _history.CurrentCycle = history.CurrentCycles;
                     _history.EDD = history.EDD.Date.ToString("dd-MMM-yyyy", CultureInfo.CreateSpecificCulture("en-US")); ;
-                    _history.EDDCorrectedByUSG = history.EDDCorrectedByUSG;
+                    _history.EDDCorrectedByUSG = Convert.ToDateTime(history.EDDCorrectedByUSG).Date.ToString("dd-MMM-yyyy", CultureInfo.CreateSpecificCulture("en-US"));
                     _history.FirstTTInjection = Convert.ToDateTime(history.FirstTTInjection).Date.ToString("dd-MMM-yyyy", CultureInfo.CreateSpecificCulture("en-US"));
                     _history.Gravidity = Convert.ToInt32(history.Gravidity);
                     _history.HighRiskFactor = history.HighRiskFactor;
@@ -108,21 +105,12 @@ namespace HospitalManagment.Controllers
                 {
                     _history.HistoryId = 0;
                     _history.PersonId = PatientId;
-                    // _history.SecondTTInjection = DateTime.Today;
-                    // _history.FirstTTInjection = DateTime.Now;
-                    // _history.LMP = DateTime.Now;
-                    // _history.EDD = DateTime.Now;
-                    //_history.EDDCorrectedByUSG = DateTime.Today;
                 }
                 opd.history = _history;
                 TempData["History"] = _history;
 
                 var TypeOfMedicine = (from medicineType in ent.TypeOfMedcines select medicineType).ToList();
-                //TypeOfMedcine ty = new TypeOfMedcine();
-                //ty.MedcineNames = "Other";
-                //ty.TypeName = "Other";
-                //ty.TypeOfMedicineId = 0;
-                //TypeOfMedicine.Add(ty);
+
                 TempData["TypeOfMedicine"] = new SelectList(TypeOfMedicine, "TypeOfMedicineId", "TypeName");
 
                 var listMedicineNames = (from medicineName in ent.MedcineNames select medicineName).ToList();
@@ -153,21 +141,6 @@ namespace HospitalManagment.Controllers
                         using (HospitalEntities ent = new HospitalEntities())
                         {
                             OPD patientOPD = new HospitalManagment.OPD();
-                            // patientOPD.Advice = opd.Advice;
-                            //patientOPD.BP = opd.BP;
-                            //patientOPD.Pulse = opd.Pulse;
-                            //if (((string[])opd.NextOpointmentDate)[0] != string.Empty)
-                            //{
-                            //    patientOPD.NextAppoinmentDate = Convert.ToDateTime(((string[])opd.NextOpointmentDate)[0]);
-                            //}
-                            //patientOPD.OPDDate = DateTime.Today;
-                            //patientOPD.Paid = opd.Paid;
-                            //patientOPD.PersonID = opd.PersonId;
-                            //patientOPD.TypeofCheckUp = opd.TypeOfCheckup;
-                            //patientOPD.SignAndSymptomsComplaints = opd.SignAndSymptoms;
-                            //ent.OPDs.Add(patientOPD);
-                            //ent.SaveChanges();
-                            //opd.OPDID = patientOPD.OPDId;
                         }
                         ModelState.AddModelError("Error", "OPD details saved successfully!");
 
@@ -212,7 +185,6 @@ namespace HospitalManagment.Controllers
                         patientHistory.Abortions = opd.history.Abortions;
                         ent.Histories.Add(patientHistory);
                         ent.SaveChanges();
-
                     }
                     ModelState.AddModelError("Error", "History details saved successfully!");
                     ViewBag.MyValue = 1;
@@ -315,8 +287,6 @@ namespace HospitalManagment.Controllers
             return View();
         }
 
-
-
         public PartialViewResult History(Models.History history, string submit)
         {
             if (ModelState.IsValid)
@@ -324,7 +294,6 @@ namespace HospitalManagment.Controllers
             return PartialView();
         }
 
-        //[HandleError()]
         public ActionResult Search(SearchPatient searchPatient, AllPatientDetails allPatientDetails)
         {
             List<AllPatientDetails> lstPatientdetails = new List<AllPatientDetails>();
@@ -362,7 +331,7 @@ namespace HospitalManagment.Controllers
                 {
                     showDetails = showDetails.Where(a => a.opd1.OPDNumber.Contains(searchPatient.OPDNO));
                 }
-              
+
                 showDetails = showDetails.Distinct();
                 if (showDetails != null && showDetails.Count() > 0)
                 {
@@ -392,7 +361,6 @@ namespace HospitalManagment.Controllers
             ///return View();
         }
 
-
         [HttpPost]
         public string DeleteMedicine(int prescriptionID, OPD opd)
         {
@@ -407,31 +375,37 @@ namespace HospitalManagment.Controllers
                 ent.SaveChanges();
                 return "Delete";
             }
-
         }
+
         private Decimal GetAge(DateTime birthDate)
         {
             DateTime Now = DateTime.Now;
             int Years = new DateTime(DateTime.Now.Subtract(birthDate).Ticks).Year - 1;
             DateTime PastYearDate = birthDate.AddYears(Years);
             Decimal Months = 0;
-            for (int i = 1; i <= 12; i++)
+            if (birthDate.ToString() != "1/1/0001 12:00:00 AM")
             {
-                string strMonths;
-                if (PastYearDate.AddMonths(i) == Now)
+                for (int i = 1; i <= 12; i++)
                 {
-                    strMonths = "0." + i.ToString();
-                    Months = Convert.ToDecimal(strMonths);
-                    break;
-                }
-                else if (PastYearDate.AddMonths(i) >= Now)
-                {
-                    strMonths = "0." + i.ToString();
-                    Months = Convert.ToDecimal(strMonths);
-                    break;
+                    string strMonths;
+                    if (PastYearDate.AddMonths(i) == Now)
+                    {
+                        strMonths = "0." + i.ToString();
+                        Months = Convert.ToDecimal(strMonths);
+                        break;
+                    }
+                    else if (PastYearDate.AddMonths(i) >= Now)
+                    {
+                        strMonths = "0." + i.ToString();
+                        Months = Convert.ToDecimal(strMonths);
+                        break;
+                    }
                 }
             }
-
+            else
+            {
+                return 0;
+            }
             Decimal retval = Years + Months;
 
 

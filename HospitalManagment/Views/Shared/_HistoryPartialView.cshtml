@@ -6,7 +6,7 @@
         $("#history_EDDCorrectedByUSG").datepicker({
             changeMonth: true,
             changeYear: true,
-            dateFormat: "mm-dd-yy", minDate: -0
+            dateFormat: "dd-M-yy", minDate: -0
         });
     });
 
@@ -14,7 +14,7 @@
         $("#history_EDD").datepicker({
             changeMonth: true,
             changeYear: true,
-            dateFormat: "mm-dd-yy", minDate: -0
+            dateFormat: "dd-M-yy", minDate: -0
         });
     });
 
@@ -43,30 +43,16 @@
                 if (dateText != null) {
                     var actualDate = new Date(dateText);
                     var newDate = new Date(actualDate);
-                    newDate.setDate(actualDate.getDate() + 277);
-                    var dd = newDate.getDate();
-                    var mm = newDate.getMonth() + 1;
+                    newDate.setDate(newDate.getDate() + 7);
+                    newDate.setMonth(newDate.getMonth() + 9);
                     var str = $.datepicker.formatDate('dd-M-yy', newDate);
-
-
+                    //EDD= LMP+7 days and 9 months
                     $("#history_EDD").val(str);// = newDate;
                 }
-
-                //display("Selected date: " + dateText + "; input's current value: " + this.value);
             }
         });
     });
-
-
-    //$(function () {
-    //    $("#btnHistory").b
-    //});
 </script>
-@*<script src="~/CustomValidation/DateValidations.js"></script>*@
-
-
-
-
 
 @*@using (Ajax.BeginForm("History", "OPD", new AjaxOptions { HttpMethod = "Post", Confirm = "R u sure?", Url = Url.Action("History", "OPD") }))
     {

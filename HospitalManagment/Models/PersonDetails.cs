@@ -56,8 +56,12 @@
             set;
         }
 
+        [Display(Name = "Age: ")]
+        public decimal? Age
+        { get; set; }
+
         [Display(Name = "Height in cm: ")]
-        public int Height
+        public int? Height
         { get; set; }
 
         [ScaffoldColumn(false)]
