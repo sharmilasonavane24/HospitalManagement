@@ -43,13 +43,23 @@ namespace HospitalManagment.Controllers
                         patientDetails.Firstname = person.Firstname;
                         patientDetails.lastName = person.LastName;
                         patientDetails.AdharCardNumber = Convert.ToDecimal(person.AdharCardNumber);
-                        patientDetails.BirthDate = Convert.ToDateTime(((string[])person.BirthDate)[0]);
+                        if (!string.IsNullOrEmpty(((string[])person.BirthDate)[0]))
+                        {
+                            patientDetails.BirthDate = Convert.ToDateTime(((string[])person.BirthDate)[0]);
+                            patientDetails.Age = GetAge(Convert.ToDateTime(((string[])person.BirthDate)[0]));
+                        }
+                        if (person.Age != null && person.Age > 0)
+                        {
+                            patientDetails.Age = Convert.ToDecimal(person.Age);
+                        }
                         patientDetails.Gender = Enum.GetName(typeof(BusinessLayer.Gender), person.Gender);
                         patientDetails.Height = Convert.ToString(person.Height);
                         patientDetails.MiddleName = person.MiddleName;
                         patientDetails.Profession = person.Profession;
                         patientDetails.RegisterDate = DateTime.Now;
-                        patientDetails.Age = GetAge(Convert.ToDateTime(((string[])person.BirthDate)[0]));
+
+
+
                         patientDetails.ReferredBy = person.ReferredBy;
                         patientDetails.Religion = person.Religion;
                         ent.People.Add(patientDetails);
@@ -224,13 +234,23 @@ namespace HospitalManagment.Controllers
                         patientDetails.Firstname = person.Firstname;
                         patientDetails.lastName = person.LastName;
                         //patientDetails.AdharCardNumber = Convert.ToDecimal(person.AdharCardNumber);
+                        if (!string.IsNullOrEmpty(((string[])person.BirthDate)[0]))
+                        {
+                            patientDetails.BirthDate = Convert.ToDateTime(((string[])person.BirthDate)[0]);
+
+                            patientDetails.Age = GetAge(Convert.ToDateTime(((string[])person.BirthDate)[0]));
+                        }
+                        if (person.Age != null && person.Age > 0)
+                        {
+                            patientDetails.Age = Convert.ToDecimal(person.Age);
+                        }
                         patientDetails.BirthDate = Convert.ToDateTime(((string[])person.BirthDate)[0]);
                         patientDetails.Gender = Enum.GetName(typeof(BusinessLayer.Gender), person.Gender);
                         //patientDetails.Height = person.Height;
                         patientDetails.MiddleName = person.MiddleName;
                         patientDetails.Profession = person.Profession;
                         patientDetails.RegisterDate = DateTime.Now;
-                        patientDetails.Age = GetAge(Convert.ToDateTime(((string[])person.BirthDate)[0]));
+
                         ent.People.Add(patientDetails);
 
                         ent.SaveChanges();
@@ -262,7 +282,7 @@ namespace HospitalManagment.Controllers
                     }
                 }
 
-                if (submit.Equals("Next Child Details", StringComparison.InvariantCultureIgnoreCase))
+                if (submit.Equals("Save Child Details", StringComparison.InvariantCultureIgnoreCase))
                 {
                     return this.RedirectToAction("AddChildDetails"); // this is to add next child details
                 }

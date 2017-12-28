@@ -66,9 +66,7 @@
                             @Html.LabelFor(model => model.Gender)
                             @*</div>
                                 <div class="editor-field">*@
-                            @Html.DropDownListFor(model => model.Gender, new SelectList(Enum.GetValues(typeof(BusinessLayer.Gender))),
-                    "Select Gender",
-                    new { @class = "form-control" })
+                            @Html.DropDownListFor(model => model.Gender, new SelectList(Enum.GetValues(typeof(BusinessLayer.Gender))))
                             @Html.ValidationMessageFor(model => model.Gender)
                         </div>
                         <div class="editor-label">
@@ -83,8 +81,9 @@
                 <tr>
                     <td><input type="submit" value="Child Details" formaction="SaveSpouseDetails" formmethod="post" /></td>
                     <td>
-                        <input type="submit" name="cancel" value="Skip" onclick="location.href='@Url.Action("AddChildDetails","Person")';"
-                               formWaction="CancelForm" formmethod="post" />
+                        <input type="button" name="cancel" value="Contact Details" onclick="window.location.href='@Url.Action("AddContactDetails","Person")';" />
+
+                        @*<input type="button" value="Some text" onclick="window.location.href='@Url.Action("AddChildDetails", "Person" )';" />*@
                     </td>
                 </tr>
             </table>
