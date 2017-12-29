@@ -36,6 +36,7 @@ namespace HospitalManagment
         public DbSet<TypeOfMedcine> TypeOfMedcines { get; set; }
         public DbSet<Prescription> Prescriptions { get; set; }
         public DbSet<History> Histories { get; set; }
+        public DbSet<Investigation> Investigations { get; set; }
         public DbSet<OPD> OPDs { get; set; }
     }
 }

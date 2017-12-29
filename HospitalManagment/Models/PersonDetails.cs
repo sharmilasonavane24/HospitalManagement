@@ -60,7 +60,7 @@
         public decimal? Age
         { get; set; }
 
-        [Display(Name = "Height in cm: ")]
+        [Display(Name = "Height (Cm): ")]
         public int? Height
         { get; set; }
 

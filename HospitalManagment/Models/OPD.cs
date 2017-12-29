@@ -38,6 +38,8 @@ namespace HospitalManagment.Models
         [Display(Name = "Mobile No: ")]
         public string Mobile { get; set; }
 
+        [Display(Name = "Height (Cm): ")]
+        public int? Height { get; set; }
         //[Display(Name = "Allergy Details: ")]
         //public string AllergyDetails { get; set; }
 
@@ -48,7 +50,7 @@ namespace HospitalManagment.Models
 
         //public string Reminder { get; set; }
 
-       // [Required]
+        // [Required]
         [Display(Name = "Type Of Checkup: ")]
         public int TypeOfCheckup { get; set; }
 

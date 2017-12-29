@@ -61,13 +61,13 @@
     function SaveRow()
     {
         debugger;
-        addRow();
+       
         var listName = "prscriptionList";
         //var prscriptionList;
         var opdId = @Html.Raw(Json.Encode(Model.OPDID));
         if (  opdId > 0) {
             var qtd = 0;
-
+            addRow();
             //if (Model.prscriptionList == null)
             {
                 var prscriptionList = @Html.Raw(Json.Encode(Model.prscriptionList));
