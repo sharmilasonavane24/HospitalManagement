@@ -24,9 +24,9 @@ namespace HospitalManagment.Controllers
             Models.OPD opd = new Models.OPD();
             using (HospitalEntities ent = new HospitalEntities())
             {
-                var listTypeOfCheckup = (from chekup in ent.TypeofCheckUps
-                                         select new { chekup.TypeofCheckUpId, chekup.CheckupName }).ToList();
-                TempData["TDTypeOfCheckup"] = new SelectList(listTypeOfCheckup, "TypeofCheckUpId", "CheckupName");
+                //var listTypeOfCheckup = (from chekup in ent.TypeofCheckUps
+                //                         select new { chekup.TypeofCheckUpId, chekup.CheckupName }).ToList();
+                //TempData["TDTypeOfCheckup"] = new SelectList(listTypeOfCheckup, "TypeofCheckUpId", "CheckupName");
 
                 var getPaientDetails = (from tbl in ent.People
                                         where tbl.PersonId == PatientId
@@ -266,7 +266,7 @@ namespace HospitalManagment.Controllers
                         oPD.PV = opd.clinicalExamination.PV;
                         oPD.RsNCVS = opd.clinicalExamination.RsNCVS;
                         oPD.Weight = opd.clinicalExamination.CurrentWeight;
-                        oPD.TypeofCheckUp = opd.TypeOfCheckup;
+                        oPD.TypeofCheckUp = 1;
                         oPD.OPDNumber = opd.MonthOPDNo;
                         oPD.PersonID = opd.PersonId;
                         if (opd.OPDID <= 0)
