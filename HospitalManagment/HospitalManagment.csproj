@@ -147,6 +147,7 @@
     <Compile Include="Models\ClinicalExamination.cs" />
     <Compile Include="Models\ContactDetails.cs" />
     <Compile Include="Models\History.cs" />
+    <Compile Include="Models\Investigations.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\OPD.cs" />
     <Compile Include="Models\PersonDetails.cs" />
