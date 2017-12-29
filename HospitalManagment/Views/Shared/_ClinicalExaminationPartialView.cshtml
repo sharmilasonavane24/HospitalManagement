@@ -166,37 +166,21 @@
                 </div>
 
             </td>
-        </tr>
-    </table>
-
-
-
-    <table>
-        <tr>
-            @*<td width="50%">
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.TypeOfCheckup, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @{
-                                var data = TempData.Peek("TDTypeOfCheckup") as SelectList;
-                            }
-                            @if (data != null)
-                            {
-                                @Html.DropDownList("TypeOfCheckup", data, "Select Checkup")
-                                @Html.ValidationMessageFor(model => model.TypeOfCheckup)
-                            }
-
-                        </div>
+            <td>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        
+                        @Html.ActionLink("Investigations", "Investigations")
                     </div>
+                </div>
 
-
-
-
-                </td>*@
-
+            </td>
         </tr>
     </table>
+
+
+
+    
 </div>
 
 
