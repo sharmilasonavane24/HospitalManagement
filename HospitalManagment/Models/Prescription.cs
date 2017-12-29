@@ -23,6 +23,9 @@ namespace HospitalManagment.Models
         [Display(Name = "Advise:")]
         public string Comment { get; set; }
 
+        [Display(Name = "Management Plan:")]
+        public string ManagementPlan { get; set; }
+
         [Display(Name = "New Medicine:")]
         public string newmedicine { get; set; }
 
