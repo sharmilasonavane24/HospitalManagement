@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace HospitalManagment.Models
 {
@@ -22,8 +18,11 @@ namespace HospitalManagment.Models
         [Display(Name = "Provisional Diagnosis: ")]
         public string positiveFidings { get; set; }
 
-        [Display(Name = "Rs/CVS: ")]
-        public string RsNCVS { get; set; }
+        [Display(Name = "RS: ")]
+        public string Rs { get; set; }
+
+        [Display(Name = "CVS: ")]
+        public string CVS { get; set; }
 
         [Display(Name = "P/A: ")]
         public string PA { get; set; }
@@ -37,5 +36,10 @@ namespace HospitalManagment.Models
         [Display(Name = "CNS: ")]
         public string CNS { get; set; }
 
+        [Display(Name = "BMI: ")]
+        public string BMI { get; set; }
+
+        [Display(Name = "Other General Findings: ")]
+        public string OtherGenFindings { get; set; }
     }
 }

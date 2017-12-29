@@ -72,7 +72,7 @@ namespace HospitalManagment.Controllers
                 opd.ReferredBy = getPaientDetails.ReferredBy;
                 opd.Address = string.Concat(address.StreetName, " ,", address.City, " ,", address.District, " ,", address.State);
                 opd.Mobile = address.ContactNumber;
-
+                opd.Height = Convert.ToInt32(getPaientDetails.Height);
                 opd.history = new Models.History();
                 var history = (from his in ent.Histories
                                where his.PersonId == PatientId
@@ -251,6 +251,10 @@ namespace HospitalManagment.Controllers
                     {
 
                         HospitalManagment.OPD oPD = new HospitalManagment.OPD();
+                        var person = (from pers in ent.People
+                                                           where pers.PersonId == opd.PersonId
+                                                           select pers
+                                                            ).FirstOrDefault();
                         if (opd.OPDID > 0)
                         {
                             oPD = (from opddeatails in ent.OPDs
@@ -264,8 +268,12 @@ namespace HospitalManagment.Controllers
                         oPD.PS = opd.clinicalExamination.PS;
                         oPD.Pulse = opd.clinicalExamination.Pulse;
                         oPD.PV = opd.clinicalExamination.PV;
-                        oPD.RsNCVS = opd.clinicalExamination.RsNCVS;
+                        oPD.Rs = opd.clinicalExamination.Rs;
+                        oPD.CVS = opd.clinicalExamination.CVS;
                         oPD.Weight = opd.clinicalExamination.CurrentWeight;
+                        person.Height = Convert.ToString(opd.Height);
+                        oPD.BMI = opd.clinicalExamination.BMI;
+                        oPD.OtherGeneralFindings = opd.clinicalExamination.OtherGenFindings;
                         oPD.TypeofCheckUp = 1;
                         oPD.OPDNumber = opd.MonthOPDNo;
                         oPD.PersonID = opd.PersonId;
