@@ -165,12 +165,25 @@
 
 
 <div class="form-horizontal">
+    @Html.Label("Management Plan")
+    @Html.TextArea("ManagementPlan")
+    @Html.Label("Prescription")
 
-    <table>
+    <table border="0">
+
+
         <tr>
+            <td>Medicine:</td>
+            <td>Type:</td>
+            <td>Medicine Name:</td>
+            <td>Dose:</td>
+            <td>Duration:</td>
+        </tr>
+        <tr>
+
             <td>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.prscriptionList[0].NameOfMedicine, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @*@Html.LabelFor(model => model.prscriptionList[0].NameOfMedicine, htmlAttributes: new { @class = "control-label col-md-2" })*@
                     <div class="col-md-10">
                         @{
                             var data = TempData.Peek("MedicineNames") as SelectList;
@@ -185,7 +198,7 @@
             </td>
             <td>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.prscriptionList[0].TypeOfMedicine, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @*@Html.LabelFor(model => model.prscriptionList[0].TypeOfMedicine, htmlAttributes: new { @class = "control-label col-md-2" })*@
 
                     <div class="col-md-10">
                         @{
@@ -200,18 +213,40 @@
                     </div>
                 </div>
             </td>
-        </tr>
-
-        <tr>
-
+            <td>@Html.TextBox("NewMedicine")</td>
             <td>
-                <div class="form-group" id="OtherMedicines">
-                    @Html.Label("New Medicine name:")
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.prscriptionList[0].Dosage, htmlAttributes: new { @class = "control-label col-md-2" })*@
                     <div class="col-md-10">
-                        @Html.TextBox("NewMedicine")
+                        <input type="text" id="Dosage" class="form-control" />
+                        @Html.ValidationMessageFor(model => model.prscriptionList[0].Dosage, "", new { @class = "text-danger" })
                     </div>
                 </div>
             </td>
+            <td>
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.prscriptionList[0].NumberOfDays, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="col-md-10">
+                        <input type="text" id="NumberOfDays" class="form-control" />
+                    </div>
+                </div>
+            </td>
+        </tr>
+       
+    </table>
+    <div class="form-group">
+        @Html.LabelFor(model => model.prscriptionList[0].Comment, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @*<input type="text" id="Comment" class="form-control" />*@
+            <textarea rows="3"  id="Comment" class="form-control"></textarea>
+        </div>
+    </div>    
+
+    <table border="0">
+        
+        <tr>
+
+          
             <td>
                 <div class="form-group" id="MedicinesWeight">
                     @Html.Label("Weight in mg:")
@@ -223,71 +258,10 @@
             </td>
         </tr>
 
-        <tr>
-            <td>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.prscriptionList[0].Dosage, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <input type="text" id="Dosage" class="form-control" />
-                        @Html.ValidationMessageFor(model => model.prscriptionList[0].Dosage, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.prscriptionList[0].NumberOfDays, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <input type="text" id="NumberOfDays" class="form-control" />
-                    </div>
-                </div>
-            </td>
-        </tr>
-        @*<tr>
-            <td>
-                <div class="form-group" id="OtherMedicines">
-                    @Html.Label("After Food:")
-                    <div class="col-md-10">
-                        @Html.CheckBox("AfterFood")
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="form-group" id="OtherMedicines">
-                    @Html.Label("Before Food:")
-                    <div class="col-md-10">
-                        @Html.CheckBox("BeforeFood")
-                    </div>
-                </div>
-            </td>
-        </tr>*@
-        @*<tr>
-            <td>
-                <div class="form-group" id="OtherMedicines">
-                    @Html.Label("In Morning:")
-                    <div class="col-md-10">
-                        @Html.CheckBox("BeforeFood")
-                    </div>
-                </div>
-            </td>
-            <td>
-                <div class="form-group" id="OtherMedicines">
-                    @Html.Label("In Night:")
-                    <div class="col-md-10">
-                        @Html.CheckBox("BeforeFood")
-                    </div>
-                </div>
-            </td>
+         
 
-        </tr>*@
         <tr>
-            <td>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.prscriptionList[0].Comment, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        <input type="text" id="Comment" class="form-control" />
-                    </div>
-                </div>
-            </td>
+            
             <td>
                 <div class="form-group">
                     @Html.LabelFor(model => model.prscriptionList[0].NextOpointmentDate, htmlAttributes: new { @class = "control-label col-md-2" })
