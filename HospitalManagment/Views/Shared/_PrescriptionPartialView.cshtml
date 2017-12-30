@@ -218,7 +218,7 @@
                     var data1 = TempData.Peek("TypeOfMedicine") as SelectList;
                     if (data != null)
                     {
-                        @Html.DropDownList("TypeOfMedicine", data1, "Select Medicine Type")
+                        @Html.DropDownList("TypeOfMedicine", data1, "Tablet")
                         @Html.ValidationMessageFor(model => model.prscriptionList[0].TypeOfMedicine, "", new { @class = "text-danger" })
             }
                         }
